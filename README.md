@@ -1,22 +1,15 @@
-## NodeJS All-in-one boilerplate
+## The Reditto Project
 
-This repository constains a basic NodeJS project configured with:
+# Why "Reditto"
 
-- Typescript
-- Webpack / Babel for transpiling and bundling
-- .env example setup
-- Prettier
-- Jest Testing Framework (with a semple test)
+Since this is a reddit clone project, I decided to name it as a mix of Reddit and Ditto, the pokemon that mimics others atacks.
 
-After you clone this repo you should run `npm install` / `yarn install`
+# The Project
 
-And after that you can run the following scripts:
+Reditto consists in a simple Forum based on the structure of the well known Reddit.
 
-- start:dev -> runs the project with nodemon
-- start:prod -> runs the build files from the dist folder
-- build -> builds the project for production
-- test -> runs all the tests once
-- test:watch -> runs the testing in watch mode
-- test:coverage -> runs the tests, followed by coverage and outputs a coverage folder
+Users can post into some category / subforum, and folow those subjects.
 
-This is the Basic config that i'll be using from now on all my NodeJS Backend / CLI projects.
+As well as comment on other posts and reply to other comments.
+
+Maybe in the future I'll implement the down / up vote system, lets see.
