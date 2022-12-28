@@ -1,14 +1,17 @@
 import { Router } from "express";
 import { signUpSchema } from "./schemas";
 import { ZodError } from "zod";
+import { createUser } from "./authService";
 
 const authRoutes = Router();
 
-authRoutes.post("/signUp", (req, res) => {
+authRoutes.post("/signUp", async (req, res) => {
   try {
-    const data = signUpSchema.parse(req.body);
+    const input = signUpSchema.parse(req.body);
+    // business logic here
+    const data = await createUser(input);
     return res.json({
-      data,
+      user: data,
     });
   } catch (error) {
     if (error instanceof ZodError) {
