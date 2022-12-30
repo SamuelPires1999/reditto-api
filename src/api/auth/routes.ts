@@ -2,25 +2,11 @@ import { Router } from "express";
 import { signUpSchema, signInSchema } from "./schemas";
 import { ZodError } from "zod";
 import { createUser, loginUser } from "./authService";
+import { registerUser } from "./use-cases";
 
 const authRoutes = Router();
 
-authRoutes.post("/signUp", async (req, res) => {
-    try {
-        const input = signUpSchema.parse(req.body);
-        const data = await createUser(input);
-        return res.json({
-            user: data,
-        });
-    } catch (error) {
-        if (error instanceof ZodError) {
-            return res.json({
-                message: "Input Parse Error",
-                error,
-            });
-        } else return res.status(500).send("unknown server error");
-    }
-});
+authRoutes.post("/signUp", registerUser);
 
 authRoutes.post("/signIn", async (req, res) => {
     try {
