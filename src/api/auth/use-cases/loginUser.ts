@@ -13,7 +13,7 @@ export const loginUser = async (req: Request, res: Response) => {
             });
         }
 
-        res.cookie("reditto-auth", data.token, { httpOnly: true });
+        req.session.userId = data.user?.id;
 
         return res.json({
             user: data.user,
