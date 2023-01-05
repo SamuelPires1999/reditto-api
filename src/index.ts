@@ -7,6 +7,7 @@ import authRoutes from "./api/auth/routes";
 import expressSession from "express-session";
 import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 import { PrismaClient } from "@prisma/client";
+import userRoutes from "./api/user/routes";
 dotenv.config();
 
 const main = async () => {
@@ -34,6 +35,7 @@ const main = async () => {
     app.use(morgan("dev"));
 
     app.use("/auth", authRoutes);
+    app.use("/user", userRoutes);
 
     app.get("/testing", (req, res) => {
         console.log("User logged: ", req.session.userId);
