@@ -4,7 +4,6 @@ import cors from "cors";
 import morgan from "morgan";
 import helmet from "helmet";
 import authRoutes from "./api/auth/routes";
-import cookieParser from "cookie-parser";
 import expressSession from "express-session";
 import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 import { PrismaClient } from "@prisma/client";
@@ -33,7 +32,6 @@ const main = async () => {
     app.use(cors());
     app.use(helmet());
     app.use(morgan("dev"));
-    app.use(cookieParser());
 
     app.use("/auth", authRoutes);
 
