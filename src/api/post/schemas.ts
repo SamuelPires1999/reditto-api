@@ -10,3 +10,5 @@ export const createPostSchema = z.object({
     content: z.string(),
     authorId: z.string().uuid(),
 });
+
+export const deletePostSchema = z.string().uuid();

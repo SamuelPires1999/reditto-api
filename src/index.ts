@@ -39,11 +39,6 @@ const main = async () => {
     app.use("/user", userRoutes);
     app.use("/post", postRoutes);
 
-    app.get("/testing", (req, res) => {
-        console.log("User logged: ", req.session.userId);
-        return res.send("Testing user logged, check your console");
-    });
-
     app.listen(3000, () => {
         console.log("Application running");
     });
