@@ -9,6 +9,7 @@ import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 import { PrismaClient } from "@prisma/client";
 import userRoutes from "./api/user/routes";
 import postRoutes from "./api/post/routes";
+import commentRoutes from "./api/comment/routes";
 dotenv.config();
 
 const main = async () => {
@@ -38,6 +39,7 @@ const main = async () => {
     app.use("/auth", authRoutes);
     app.use("/user", userRoutes);
     app.use("/post", postRoutes);
+    app.use("/comment", commentRoutes);
 
     app.listen(3000, () => {
         console.log("Application running");

@@ -1,4 +1,4 @@
-import { TypeOf, z } from "zod";
+import { z } from "zod";
 import { createPostSchema, deletePostSchema, getPostsSchema } from "./schemas";
 import { db } from "../../infra/database";
 
