@@ -7,6 +7,18 @@ export const getPosts = async (input: z.infer<typeof getPostsSchema>) => {
     const posts = await db.post.findMany({
         skip: parseInt(input.skip || "0"),
         take: parseInt(input.take || "20"),
+        include: {
+            author: true,
+            comments: {
+                select: {
+                    author: true,
+                    content: true,
+                    createdAt: true,
+                    id: true,
+                    replies: true,
+                },
+            },
+        },
     });
 
     return posts;
